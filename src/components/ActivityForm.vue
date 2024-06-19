@@ -7,23 +7,7 @@
                 <input type="text" class="input" placeholder="Qual tarefa você deseja iniciar?" />
             </div>
             <div class="column">
-                <div class="is-flex is-align-items-center is-justify-content-space-between">
-                    <section>
-                        <strong>80:08:00</strong>
-                    </section>
-                    <button class="button">
-                        <span class="icon">
-                            <i class="fas fa-play"></i>
-                        </span>
-                        <span>play</span>
-                    </button>
-                    <button class="button">
-                        <span class="icon">
-                            <i class="fas fa-stop"></i>
-                        </span>
-                        <span>stop</span>
-                    </button>
-                </div>
+                <ActivityTimer/>
             </div>
         </div>
     </div>
@@ -31,8 +15,12 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue';
+import ActivityTimer from './ActivityTimer.vue';
 
 export default defineComponent({
-    name: 'ActivityForm'
+    name: 'ActivityForm',
+    components: {
+        ActivityTimer
+    },
 });
 </script>

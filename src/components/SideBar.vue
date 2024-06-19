@@ -23,7 +23,7 @@ header {
 }
 
 img{
-    border-radius: 5px;
+    border-radius: 10px;
 }
 
 @media only screen and (max-width: 768px) {
