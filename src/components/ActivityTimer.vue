@@ -29,6 +29,7 @@ export default defineComponent({
             stopwatchRunning: false,
         }
     },
+    emits: ['atTheEndOfTheTimer'],
     components: {
         ActivityStopwatch
     },
@@ -44,6 +45,8 @@ export default defineComponent({
         finish() {
             this.stopwatchRunning = false;
             clearInterval(this.stopwatch);
+            this.$emit('atTheEndOfTheTimer', this.timeInSeconds);
+            this.timeInSeconds = 0;
         }
     },
 });
