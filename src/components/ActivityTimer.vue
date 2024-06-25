@@ -1,24 +1,15 @@
 <template>
     <div class="is-flex is-align-items-center is-justify-content-space-between">
         <ActivityStopwatch :timeInSeconds="timeInSeconds" />
-        <button class="button" @click="start()" :disabled="stopwatchRunning">
-            <span class="icon">
-                <i class="fas fa-play"></i>
-            </span>
-            <span>play</span>
-        </button>
-        <button class="button" @click="finish()" :disabled="!stopwatchRunning">
-            <span class="icon">
-                <i class="fas fa-stop"></i>
-            </span>
-            <span>stop</span>
-        </button>
+        <TimerButton @click="start" icon="fas fa-play" text="play" :disabled="stopwatchRunning" />
+        <TimerButton @click="finish" icon="fas fa-stop" text="stop" :disabled="!stopwatchRunning" />
     </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
 import ActivityStopwatch from './ActivityStopwatch.vue';
+import TimerButton from './TimerButton.vue';
 
 export default defineComponent({
     name: 'ActivityTimer',
@@ -31,7 +22,7 @@ export default defineComponent({
     },
     emits: ['atTheEndOfTheTimer'],
     components: {
-        ActivityStopwatch
+        ActivityStopwatch, TimerButton
     },
     methods: {
         start() {
