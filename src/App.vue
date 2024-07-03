@@ -5,6 +5,9 @@
     </div>
     <div class="column is-three-quarter">
       <ActivityForm />
+      <div class="">
+          <ActivityTask />
+      </div>
     </div>
   </main>
 </template>
@@ -13,12 +16,14 @@
 import { defineComponent } from 'vue';
 import SideBar from './components/SideBar.vue';
 import ActivityForm from './components/ActivityForm.vue';
+import ActivityTask from './components/ActivityTask.vue';
 
 export default defineComponent({
   name: 'App',
   components: {
     SideBar,
-    ActivityForm
+    ActivityForm,
+    ActivityTask
   }
 });
 </script>
