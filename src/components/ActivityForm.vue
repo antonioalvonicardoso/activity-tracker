@@ -19,6 +19,7 @@ import ActivityTimer from './ActivityTimer.vue';
 
 export default defineComponent({
     name: 'ActivityForm',
+    emits: ['saveTask'],
     data() {
         return{
             description: '',
@@ -29,8 +30,10 @@ export default defineComponent({
     },
     methods: {
         finishTask(timeInSeconds: number) : void{
-            console.log(timeInSeconds);
-            console.log(this.description);
+            this.$emit('saveTask', {
+                durationInSeconds: timeInSeconds,
+                description: this.description
+            });
             this.description = '';
         }
     }
