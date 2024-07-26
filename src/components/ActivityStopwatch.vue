@@ -1,5 +1,5 @@
 <template>
-    <section>
+    <section class="display">
         <strong>{{ elapsedTime }}</strong> <!--Acessa como se fosse uma propriedade-->
     </section>
 </template>
@@ -19,3 +19,10 @@ export default defineComponent({
     },
 });
 </script>
+
+<style scoped>
+.display{
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+}
+</style>

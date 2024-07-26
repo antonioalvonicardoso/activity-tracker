@@ -1,9 +1,9 @@
 <template>
-  <main class="columns is-gaples is-multiline">
+  <main class="columns is-gaples is-multiline" :class="{'dark-mode': darkModeActive}">
     <div class="column is-one-quarter">
-      <SideBar />
+      <SideBar @changedTheme="changeTheme"/>
     </div>
-    <div class="column is-three-quarter">
+    <div class="column is-three-quarter content">
       <ActivityForm @saveTask="saveTask" />
       <div class="list">
         <ActivityBox v-if="listIsEmpty"> Você não esta muito produtivo hoje! </ActivityBox>
@@ -25,7 +25,8 @@ export default defineComponent({
   name: 'App',
   data() {
     return {
-      tasks: [] as ITask[]
+      tasks: [] as ITask[],
+      darkModeActive: false,
     }
   },
   components: {
@@ -42,12 +43,30 @@ export default defineComponent({
   methods: {
     saveTask(task: ITask) {
       this.tasks.push(task);
+    },
+
+    changeTheme(darkMode: boolean){
+      this.darkModeActive = darkMode;
     }
   }
 });
 </script>
 
 <style>
+main {
+  --bg-primary: #fff;
+  --text-primary: #000;
+}
+
+main.dark-mode{
+  --bg-primary: #2b2d42;
+  --text-primary: #ddd;
+}
+
+.content{
+  background-color: var(--bg-primary)
+}
+
 .list {
   padding: 1.25rem;
 }

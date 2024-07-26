@@ -1,5 +1,5 @@
 <template>
-    <div class="box has-text-weight-bold">
+    <div class="box has-text-weight-bold" :style="style">
        <slot></slot>
     </div>
 </template>
@@ -9,11 +9,12 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
     name: 'ActivityBox',
+    data(){
+        return{
+            style: { //Controlar estilo pelo javascript
+                background: '#FAF0CA',
+            }
+        }
+    }
 });
 </script>
-
-<style scoped>
-.box {
-    background: #FAF0CA;
-}
-</style>
